@@ -10,12 +10,12 @@ Object.getOwnPropertyNames([1,2,3]); // ["0", "1", "2", "length"]
 
 #### To deep inspect an object
 
-1. Use `util.inspect`
+* Use `util.inspect`
 ``` javascript
 var util = require('util');
 console.log(util.inspect(err.error));
 ```
-2. Use console directly
+* Use console directly
 ``` javascript
 console.dir(obj);
 console.log('%j',obj);

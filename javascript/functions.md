@@ -88,3 +88,41 @@ var arr = [3,9,5,8,6];
 max(...arr); //9
 max(...arr, 11) //11
 ```
+### Arrow Functions
+
+One of the most interesting new parts of ECMAScript 6 is the arrow function. Arrow functions are, as the name suggests, functions defined with a new syntax that uses an "arrow" (=>). 
+
+Simple examples:
+
+``` javascript
+var mirror = value => value;
+mirror(10); //10
+
+var diff = (a,b) => a - b;
+diff(9,5) //4
+
+//With no args, have an empty set of parantheses
+var whatDay = () => "Good Day";
+whatDay(); //"Good Day"
+
+var nothing = () => {}; //valid empty function
+```
+Better examples:
+
+``` javascript
+var last = (...arr)  => {
+  return arr[arr.length - 1];
+}
+last(...[1,2,3,4]); //4
+
+var sorted = [4,3,7,1].sort((a,b) => a - b);
+sorted; //[1,3,4,7]
+```
+
+#### Tail Call Optimization 
+
+Tail recursion (or tail-end recursion) is particularly useful, and often easy to handle in implementations. Tail calls can be implemented without adding a new stack frame to the call stack. ES6 supports TCO. 
+
+Check out this code shared in [Babel REPL](https://t.co/lRM2jFNGMs) to know how Tail Call Optimization works and how Babel Transpiler converts the recursion into iteration to make it work with ES5.
+
+

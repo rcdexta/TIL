@@ -94,3 +94,56 @@ let talkingPet = {
 Object.setPrototypeOf(talkingPet, Cat);
 talkingPet.greet();                       //I can meow meow
 ```
+
+#### Object Destructuring
+
+Object destructuring syntax uses an object literal on the left side of an assignment operation. For example:
+
+``` javascript
+let machine = {
+			os: 'Ubuntu',
+			ip: '127.0.0.1'
+		}
+
+let { os, ip } = machine;
+os; // 'Ubuntu'
+ip;	 // '127.0.0.1'	
+```
+
+We can also specify default values when destructuring
+
+``` javascript
+let {os, ip, model = 2016 } = machine;
+model; //2016
+```
+
+Till now, we saw examples where  destructuring worked based on the assumption that object property and local variable names were the same.
+
+We can assign aliases before destructuring like
+
+``` javascript
+let { os: operating_system, ip: identifier, model: year = 2016} = machine;
+```
+
+##### Nested Destructuring
+
+By using a syntax similar to object literals, you can navigate into a nested object structure to retrieve just the information you want. Here's an example:
+
+``` javascript
+let machine = {
+			os: {
+				name: 'Ubuntu',
+				version: '15.10',
+				drivers: {
+				  graphics: 'NVidia',
+				  sound: 'Intel Onboard'
+				}
+			}
+		}
+		
+		
+let {os: {drivers: {graphics}} } = machine;
+let {os: {drivers: {graphics: gpu_vendor}} } = machine;
+console.log(graphics); //Nvidia
+console.log(gpu_vendor); //Nvidia
+```

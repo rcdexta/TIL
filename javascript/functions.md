@@ -71,4 +71,20 @@ Things to note:
 * There can be only one rest parameter in a function
 * And the rest parameter must be the last parameter to a function
 
+#### Spread operator
 
+What if you would like to pass an array as parameter to a function that accepts rest parameters. There you would use the `...` operator
+
+``` javascript
+function max(...values){
+  var max = -1;
+  for(var i=0;i<values.length;i++){
+    max = max < values[i] ? values[i] : max;
+  }
+  return max;
+}
+
+var arr = [3,9,5,8,6];
+max(...arr); //9
+max(...arr, 11) //11
+```

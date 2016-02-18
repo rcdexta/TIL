@@ -147,3 +147,29 @@ let {os: {drivers: {graphics: gpu_vendor}} } = machine;
 console.log(graphics); //Nvidia
 console.log(gpu_vendor); //Nvidia
 ```
+
+##### Destructuring function parameters
+
+Destructured parameters offer an alternative that makes it clearer what arguments a function expects. A destructured parameter uses an object or array destructuring pattern in place of a named parameter.
+
+To see this in action, look at the function `setTheme()` written in ES5 and ES6
+
+``` javascript
+function setTheme(name, options) { //ES5
+	options = options || {};
+	
+	let color = options.color,
+		 device = options.device;
+		 
+	// code to set theme
+}
+
+function setTheme(name, { color, device} = {}) { //ES6
+	// code to set theme
+}
+
+setTheme('NightWind', {
+				color: 'Ray Blue',
+				device: 'Mobile'
+			});
+```

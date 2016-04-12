@@ -3,5 +3,5 @@
 #### Check which processes and ports are listening
 
 ``` bash
-$ sudo netstat -tulpn
+$ sudo netstat -peanut | grep 12201
 ```
